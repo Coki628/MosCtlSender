@@ -1,3 +1,4 @@
+// 文字列の送信
 function sender(action, url) {
 
 	var $data = $("input[name='" + action + "']");
@@ -8,7 +9,7 @@ function sender(action, url) {
 		$.post(url + "?mode=add", {data: $data.val()}, function(data) { $data.val(""); });
 	});
 }
-
+// タップした画像を指定する
 function setFace(_id, _data) {
 
 	$(_id).on("click", function() {
@@ -17,6 +18,7 @@ function setFace(_id, _data) {
 	});
 }
 
+// メイン処理
 window.onload = function() {
 
 	sender("speak", "http://searching4freedom.razor.jp/Chat/Speak.php");
@@ -28,7 +30,5 @@ window.onload = function() {
 	setFace("#face03", "03");
 	setFace("#face04", "04");
 	setFace("#face05", "05");
-
-
 
 }
