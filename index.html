@@ -9,14 +9,34 @@
 	<body>
 		<p>話す内容を入力</p>
 		<form id="speak" action="http://searching4freedom.razor.jp/Chat/Speak.php?mode=add" method="post">
-		  <input type="text" name="speak" value="" />
-		  <input type="submit" value="送信" />
+			<input type="text" name="speak" value="" />
+			<input type="submit" value="送信" />
 		</form>
 
 		<p>動く内容を入力</p>
 		<form id="move" action="http://searching4freedom.razor.jp/Chat/Move.php?mode=add" method="post">
-		  <input type="text" name="move" value="" />
-		  <input type="submit" value="送信" />
+
+				<select name="move">
+					<option value="1">1. ホームポジション</option>
+					<option value="2">2. 右手を振る</option>
+					<option value="3">3. 左手で手招きする</option>
+					<option value="4">4. 両手を上げて腰を回す</option>
+					<option value="5">5. 身体の前で物を掴み、持ち上げる</option>
+					<option value="6">6. 掴んだ物を渡す</option>
+					<option value="7">7. 物を渡した姿勢からホームポジションに戻る</option>
+					<option value="8">8. 握手のため手を差し出す</option>
+					<option value="9">9. 手を差し出した姿勢からホームポジションに戻る</option>
+					<option value="10">10. 手を上下に動かす</option>
+					<option value="11">11. 腰を回す</option>
+					<option value="12">12. 右手を上げる</option>
+					<option value="13">13. 左手を上げる</option>
+					<option value="14">14. 両手を上げる</option>
+					<option value="15">15. 手話で感謝する</option>
+					<option value="16">16. 頭を掻く</option>
+					<option value="17">17. 右手で指をさす</option>
+				</select>
+
+		  	<input type="submit" value="送信" />
 		</form>
 
 		<p>顔の種類をタップ</p>
