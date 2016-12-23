@@ -7,14 +7,29 @@
 		<script src="main.js"></script>
 	</head>
 	<body>
+
+		<p>顔の種類を選択</p>
+		<input value="00" name="RadioGroup1" type="radio" checked="checked"/>
+	   	<img src="images/00.png"/>
+		<input value="01" name="RadioGroup1" type="radio"/>
+		<img src="images/01.png"/>
+		<input value="02" name="RadioGroup1" type="radio"/>
+		<img src="images/02.png"/><br>
+		<input value="03" name="RadioGroup1" type="radio"/>
+		<img src="images/03.png"/>
+		<input value="04" name="RadioGroup1" type="radio"/>
+		<img src="images/04.png"/>
+		<input value="05" name="RadioGroup1" type="radio"/>
+		<img src="images/05.png"/>
+
 		<p>話す内容を入力</p>
-		<form id="speak" action="http://searching4freedom.razor.jp/Chat/Speak.php?mode=add" method="post">
-			<input type="text" name="speak" value="" />
+		<form id="speak">
+			<input type="text" name="speak" value=""/>
 			<input type="submit" value="送信" />
 		</form>
 
 		<p>動く内容を入力</p>
-		<form id="move" action="http://searching4freedom.razor.jp/Chat/Move.php?mode=add" method="post">
+		<form id="move">
 
 				<select name="move">
 					<option value="1">1. ホームポジション</option>
@@ -38,13 +53,7 @@
 
 		  	<input type="submit" value="送信" />
 		</form>
-
-		<p>顔の種類をタップ</p>
-		<img id="face00" src="images/00.png"/>
-		<img id="face01" src="images/01.png"/>
-		<img id="face02" src="images/02.png"/><br>
-		<img id="face03" src="images/03.png"/>
-		<img id="face04" src="images/04.png"/>
-		<img id="face05" src="images/05.png"/>
+		<br>
+		<input type="button" value="再読み込み" onclick="javascript:window.location.reload()">
 	</body>
 </html>

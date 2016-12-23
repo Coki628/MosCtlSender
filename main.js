@@ -1,5 +1,7 @@
-// 話す内容の送信
-function sendSpeak() {
+/**
+ * セリフと顔の種類を送信
+ */
+function sendSpeakAndFace() {
 
 	var $data = $("input[name='speak']");
 
@@ -8,13 +10,22 @@ function sendSpeak() {
 		event.preventDefault();
 
 		console.log($data.val());
+		console.log($("input[name='RadioGroup1']:checked").val());
 
 		$.post("http://searching4freedom.razor.jp/Chat/Speak.php?mode=add",
 				{data: $data.val()}, function(data) { $data.val(""); });
+
+		$.post("http://searching4freedom.razor.jp/Chat/Face.php?mode=add",
+				// チェックが入っているラジオボタンのvalueを取得して送信
+				{data: $("input[name='RadioGroup1']:checked").val()},
+				function(data){});
 	});
 }
-// 動作の種類の送信
-function sendMove(url) {
+
+/**
+ * 動作の種類の送信
+ */
+function sendMove() {
 
 	var $data = $("select[name='move']");
 
@@ -22,35 +33,38 @@ function sendMove(url) {
 
 		event.preventDefault();
 
-		// .の手前まで(数字部分)を切り出す
-//		var move = $data.val().substring(0, $data.val().indexOf("."));
-
 		console.log($data.val());
 
 		$.post("http://searching4freedom.razor.jp/Chat/Move.php?mode=add",
 				{data: $data.val()}, function(data) { $data.val(""); });
 	});
 }
-// タップした画像を指定する
-function setFace(_id, _data) {
 
-	$(_id).on("click", function() {
-		$.post("http://searching4freedom.razor.jp/Chat/Face.php?mode=add",
-				{data: _data}, function(data){});
-	});
+/**
+ * 初期化処理
+ */
+function init() {
+
+	// セリフをなくす
+	$.post("http://searching4freedom.razor.jp/Chat/Speak.php?mode=add",
+			{data: "…"}, function(data) {});
+	// 顔を標準に戻す
+	$.post("http://searching4freedom.razor.jp/Chat/Face.php?mode=add",
+			{data: "00"}, function(data){});
+	// ホームポジションに戻す
+	$.post("http://searching4freedom.razor.jp/Chat/Move.php?mode=add",
+			{data: "1"}, function(data) {});
+
 }
 
-// メイン処理
+/**
+ * メイン処理
+ */
 window.onload = function() {
 
-	sendSpeak();
-	sendMove();
+	init();
 
-	setFace("#face00", "00");
-	setFace("#face01", "01");
-	setFace("#face02", "02");
-	setFace("#face03", "03");
-	setFace("#face04", "04");
-	setFace("#face05", "05");
+	sendSpeakAndFace();
+	sendMove();
 
 }
